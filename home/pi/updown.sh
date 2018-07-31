@@ -16,13 +16,13 @@ dns_target='1.1.1.1';
 wifi_target='192.168.1.1';
 
 # Run the tests.
-domain_test=$( sudo ping -f -c 10 192.168.1.2 | awk -F '/' 'END {print $5}' );
+domain_test=$( sudo ping -f -c 10 $domain_target | awk -F '/' 'END {print $5}' );
   [[ -z "$domain_test" ]] && domain_test=0;
   domain_test=$(date +%s)","$domain_test;
-dns_test=$( sudo ping -f -c 10 192.168.1.2 | awk -F '/' 'END {print $5}' );
+dns_test=$( sudo ping -f -c 10 $dns_target | awk -F '/' 'END {print $5}' );
   [[ -z "$dns_test" ]] && dns_test=0;
   dns_test=$(date +%s)","$dns_test;
-wifi_test=$( sudo ping -f -c 10 192.168.1.2 | awk -F '/' 'END {print $5}' );
+wifi_test=$( sudo ping -f -c 10 $wifi_target | awk -F '/' 'END {print $5}' );
   [[ -z "$wifi_test" ]] && wifi_test=0;
   wifi_test=$(date +%s)","$wifi_test;
 
